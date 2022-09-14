@@ -1,13 +1,9 @@
 <resources>
     <string name="app_name">Child Task Manager</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="background">background</string>
 
     <string name="please_wait_dots">Please wait…</string>
-    <string name="network_error_short">No Network Connection.</string>
     <string name="network_error_long">We cannot detect a network connection on this device. Please check Network Settings to connect to an available network.</string>
-    <string name="unexpected_error_short">An unexpected error has occurred.</string>
     <string name="unexpected_error_long">An unexpected error has occurred. \nPlease try again later.</string>
     <string name="ok">OK</string>
     <string name="banner">Banner</string>
