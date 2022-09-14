@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appBgColor"
+    android:id="@+id/rlParent"
+    tools:context=".home.presentation.HomeActivity">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_pattern"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:weightSum="2">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                android:text="@string/task_listing"
+                android:textColor="@color/appMainTextColor"
+                android:textStyle="bold"
+                android:gravity="start"/>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end|center_vertical"
+                android:layout_weight="1">
+                <DigitalClock
+                    android:id="@+id/digitalClock1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="@color/appMainTextColorLight"
+                    android:layout_marginEnd="10dp" />
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/settings_btn"
+                    android:contentDescription="@string/settings" />
+            </LinearLayout>
+        </LinearLayout>
+        <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rvCarousel"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/tvTitle"
+            android:textColor="@color/appMainTextColor"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <include
+        android:id="@+id/progressLayout"
+        layout="@layout/layout_progress"
+        android:visibility="gone"/>
+
+</RelativeLayout>

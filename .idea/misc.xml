@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/My Data App/Goally/ChildTaskManager-Git/app/src/main/res/drawable/rounded_horizontal_progress_bar.xml" value="0.1" />
+        <entry key="..\:/My Data App/Goally/ChildTaskManager-Git/app/src/main/res/layout/activity_task_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/My Data App/Goally/ChildTaskManager/app/src/main/res/drawable/card_border_round_purple.xml" value="0.1555" />
+        <entry key="..\:/My Data App/Goally/ChildTaskManager/app/src/main/res/drawable/card_border_round_red.xml" value="0.1555" />
+        <entry key="..\:/My Data App/Goally/ChildTaskManager/app/src/main/res/drawable/rounded_horizontal_progress_bar.xml" value="0.1555" />
+        <entry key="..\:/My Data App/Goally/ChildTaskManager/app/src/main/res/layout/activity_fullscreen.xml" value="0.20416666666666666" />
+        <entry key="..\:/My Data App/Goally/ChildTaskManager/app/src/main/res/layout/activity_home.xml" value="0.25" />
+        <entry key="..\:/My Data App/Goally/ChildTaskManager/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
+        <entry key="..\:/My Data App/Goally/ChildTaskManager/app/src/main/res/layout/activity_task_details.xml" value="0.1925133689839572" />
+        <entry key="..\:/My Data App/Goally/ChildTaskManager/app/src/main/res/layout/item_task_list.xml" value="0.20416666666666666" />
+        <entry key="..\:/My Data App/Goally/ChildTaskManager/app/src/main/res/layout/layout_progress.xml" value="0.20416666666666666" />
+        <entry key="..\:/My Data App/Goally/ChildTaskManager/app/src/main/res/layout/main_activity.xml" value="0.20416666666666666" />
+        <entry key="..\:/My Data App/Goally/ChildTaskManager/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

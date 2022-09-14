@@ -1,0 +1,19 @@
+<resources>
+
+    <style name="Widget.Theme.ChildTaskManager.ActionBar.Fullscreen" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="Widget.Theme.ChildTaskManager.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+
+    <style name="CustomRoundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+        <item name="borderWidth">1dp</item>
+        <item name="android:shadowColor">@color/black_overlay</item>
+    </style>
+
+</resources>
