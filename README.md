@@ -16,11 +16,11 @@
 
 ## Task ## 
 
-- [x] API Implementation
-- [x] UI/UX (Figma)
+- [x] API Implementation ([Open Api](https://forunt-point-backend.herokuapp.com/v1/api/rest-test "Open Api"))
+- [x] UI/UX ([Figma](https://www.figma.com/file/Msz5NVkLZ4Y1Ev6d9lZrjd/Android-Assigmnent?node-id=0%3A1 "Figma"))
 - [x] Open Details Screen
-- [x] Now Represent Current Time
-- [x] Starting represent when reminder is suppose to start
+- [x] **Now** Represent Current Time
+- [x] **Starting** represent when reminder is suppose to start
 - [ ] A push notification should be fired when any reminder time occurs
 
 
