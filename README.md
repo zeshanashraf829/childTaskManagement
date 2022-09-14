@@ -1,6 +1,6 @@
 # Child Task Management
 
-![Demo](https://ncf-ec2-east-04-hv.xconvert.com/file/converter/download/MdkhFwDFKNj-z-0-y-63224ddfb7eeb638e4a3c9b2.gif)
+![Demo](https://user-images.githubusercontent.com/66409700/190271825-0aaf0377-14f3-4035-b4b5-4dfb7ebc1bbe.gif)
 
 ## Technologies ## 
 
