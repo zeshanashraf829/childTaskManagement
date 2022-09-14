@@ -1,8 +1,8 @@
 # ChildTaskManagement
 
-*Project implementations* 
+**Implementations in Project** 
 
 * MVVM 
-* Hilt for DI
+* Hilt and Dagger both for DI
 * Coroutines
 * Room database to store data from API
