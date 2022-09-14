@@ -11,6 +11,7 @@
 - [x] Retrofit
 - [x] Livedata
 - [x] Extension Functions
+- [x] Modular & Clean Architecture 
 
 
 
