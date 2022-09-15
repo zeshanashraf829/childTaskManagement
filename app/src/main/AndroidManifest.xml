@@ -23,9 +23,12 @@
         tools:targetApi="m">
         <activity
             android:name=".home.presentation.TaskDetailsActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.ChildTaskManager.Fullscreen" />
         <activity
             android:name=".home.presentation.HomeActivity"
+            android:screenOrientation="landscape"
             android:exported="false" />
         <activity
             android:name=".splash.SplashActivity"

@@ -5,6 +5,7 @@ import TasksListResponse
 import android.R.color
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.annotation.SuppressLint
 import android.graphics.BlendMode
 import android.graphics.BlendModeColorFilter
 import android.graphics.PorterDuff
@@ -13,6 +14,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.view.View
+import android.view.WindowInsets
 import android.widget.ProgressBar
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
@@ -36,6 +39,7 @@ import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 import getValueForProgressFromTimeDifference
 import hideKeyboard
+import setProgressColor
 
 
 @AndroidEntryPoint
@@ -46,20 +50,43 @@ class TaskDetailsActivity : AppCompatActivity() {
     private lateinit var viewModel: HomeActivityViewModel
     private lateinit var task: TasksListResponse
 
+    private val hideHandler = Handler(Looper.getMainLooper())
+
+    @SuppressLint("InlinedApi")
+    private val hidePart2Runnable = Runnable {
+        // Delayed removal of status and navigation bar
+        if (Build.VERSION.SDK_INT >= 30) {
+            binding.rlParent.windowInsetsController?.hide(WindowInsets.Type.statusBars() or WindowInsets.Type.navigationBars())
+        } else {
+            // Note that some of these constants are new as of API 16 (Jelly Bean)
+            // and API 19 (KitKat). It is safe to use them, as they are inlined
+            // at compile-time and do nothing on earlier devices.
+            binding.rlParent.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LOW_PROFILE or
+                        View.SYSTEM_UI_FLAG_FULLSCREEN or
+                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+                        View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY or
+                        View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or
+                        View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding=ActivityTaskDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel = ViewModelProvider(this)[HomeActivityViewModel::class.java]
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setDisplayShowHomeEnabled(true)
-        supportActionBar?.setTitle("Details")
         intent.extras?.let {
             if(it.containsKey("taskId")){
                 viewModel.loadTaskByIDFromDb(it.getString("taskId")!!)
             }
         }
+
+        hide()
+
+        binding.ivBack.setOnClickListener { onBackPressed() }
+
 
         setupViewStateObserver()
         setupViewEventObserver()
@@ -137,36 +164,6 @@ class TaskDetailsActivity : AppCompatActivity() {
 
             pbRemainingTime.setProgressColor(this@TaskDetailsActivity,progress)
             pbRemainingTime.progress=progress
-
-//            when(today){
-//                Constants.DayOfTheWeek.Mon->{
-//                    tvStartTime.setText(task.schedule?.mon)
-//                    ctvbTimer.setText(calculateTheDifferenceInTime(dcTime.text.toString(),task.schedule?.mon!!))
-//                }
-//                Constants.DayOfTheWeek.Tue->{
-//                    tvStartTime.setText(task.schedule?.tue)
-//                    ctvbTimer.setText(calculateTheDifferenceInTime(dcTime.text.toString(),task.schedule?.tue!!))
-//                }
-//                Constants.DayOfTheWeek.Wed->{
-//                    tvStartTime.setText(task.schedule?.wed)
-//                    ctvbTimer.setText(calculateTheDifferenceInTime(dcTime.text.toString(),task.schedule?.wed!!))
-//                }
-//                Constants.DayOfTheWeek.Thu->{
-//                    tvStartTime.setText(task.schedule?.thu)
-//                    ctvbTimer.setText(calculateTheDifferenceInTime(dcTime.text.toString(),task.schedule?.thu!!))
-//                }
-//                Constants.DayOfTheWeek.Fri->{
-//                    tvStartTime.setText(task.schedule?.fri)
-//                    ctvbTimer.setText(calculateTheDifferenceInTime(dcTime.text.toString(),task.schedule?.fri!!))
-//                }
-//                Constants.DayOfTheWeek.Sat->{
-//                    tvStartTime.setText(task.schedule?.sat)
-//                    ctvbTimer.setText(calculateTheDifferenceInTime(dcTime.text.toString(),task.schedule?.sat!!))
-//                }
-//                Constants.DayOfTheWeek.Sun->{
-//                }
-//
-//            }
         }
     }
 
@@ -337,10 +334,6 @@ class TaskDetailsActivity : AppCompatActivity() {
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
-        return super.onSupportNavigateUp()
-    }
 
     private fun showLoadingState() {
         showFullScreenLoading(R.string.please_wait_dots)
@@ -381,24 +374,11 @@ class TaskDetailsActivity : AppCompatActivity() {
         }
     }
 
-}
+    private fun hide() {
+        // Hide UI first
+        supportActionBar?.hide()
 
-private fun ProgressBar.setProgressColor(context:FragmentActivity,progress: Int?) {
-    var color=ContextCompat.getColor(context, R.color.appMainGreen)
-
-
-    progress?.let{
-        if(it>=10){
-            color=ContextCompat.getColor(context, R.color.appMainGreen)
-        }else if(it<10 && it>=3){
-            color=ContextCompat.getColor(context, R.color.appMainOrange)
-        }else if(it<3){
-            color=ContextCompat.getColor(context, R.color.appMainRedDark)
-        }
+        hideHandler.post(hidePart2Runnable)
     }
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-        progressDrawable.setColorFilter(BlendModeColorFilter(color, BlendMode.SRC_ATOP))
-    } else {
-        progressDrawable.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
-    }
+
 }

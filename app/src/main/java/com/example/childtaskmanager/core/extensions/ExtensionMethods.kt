@@ -1,8 +1,16 @@
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.BlendMode
+import android.graphics.BlendModeColorFilter
+import android.graphics.PorterDuff
+import android.os.Build
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.ProgressBar
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentActivity
+import com.example.childtaskmanager.R
 import java.text.SimpleDateFormat
 
 
@@ -74,5 +82,29 @@ fun Context.getValueForProgressFromTimeDifference(time1:String, time2:String?):I
         100
     }
 }
+
+fun ProgressBar.setProgressColor(context: FragmentActivity, progress: Int?) {
+    var color= ContextCompat.getColor(context, R.color.appMainGreen)
+
+
+    progress?.let{
+        if(it>=10){
+            color= ContextCompat.getColor(context, R.color.appMainGreen)
+        }else if(it<10 && it>=3){
+            color= ContextCompat.getColor(context, R.color.appMainOrange)
+        }else if(it<3){
+            color= ContextCompat.getColor(context, R.color.appMainRedDark)
+        }
+    }
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        progressDrawable.setColorFilter(BlendModeColorFilter(color, BlendMode.SRC_ATOP))
+    } else {
+        progressDrawable.setColorFilter(color, PorterDuff.Mode.SRC_ATOP)
+    }
+
+
+
+}
+
 
 

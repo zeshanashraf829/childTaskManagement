@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/My Data App/Goally/ChildTaskManager-Git/app/src/main/res/drawable/ripple_circular.xml" value="0.1135" />
         <entry key="..\:/My Data App/Goally/ChildTaskManager-Git/app/src/main/res/drawable/rounded_horizontal_progress_bar.xml" value="0.1" />
+        <entry key="..\:/My Data App/Goally/ChildTaskManager-Git/app/src/main/res/layout/activity_home.xml" value="0.1675925925925926" />
+        <entry key="..\:/My Data App/Goally/ChildTaskManager-Git/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
         <entry key="..\:/My Data App/Goally/ChildTaskManager-Git/app/src/main/res/layout/activity_task_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/My Data App/Goally/ChildTaskManager-Git/app/src/main/res/layout/item_task_list.xml" value="0.20416666666666666" />
         <entry key="..\:/My Data App/Goally/ChildTaskManager/app/src/main/res/drawable/card_border_round_purple.xml" value="0.1555" />
         <entry key="..\:/My Data App/Goally/ChildTaskManager/app/src/main/res/drawable/card_border_round_red.xml" value="0.1555" />
         <entry key="..\:/My Data App/Goally/ChildTaskManager/app/src/main/res/drawable/rounded_horizontal_progress_bar.xml" value="0.1555" />
